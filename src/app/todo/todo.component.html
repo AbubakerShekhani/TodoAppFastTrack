@@ -1,0 +1,31 @@
+
+
+<!--
+<h2>{{todo.itemname | uppercase}} Details</h2>
+<div><span>id: </span>{{todo.id}}</div>
+<div><span>name: </span>{{todo.itemname }}</div>
+
+
+<div>
+  <label>Todo Item:
+    <input [(ngModel)]="todo.itemname" placeholder="itemname">
+  </label>
+</div>
+
+-->
+
+<h2>My Todos</h2>
+<ul class="todos">
+  <li *ngFor="let todo of todos" (click)="onSelect(todo)">
+    <a>
+    <span class="badge">{{todo.id}}</span> {{todo.itemname}}
+    </a>
+    <button class="delete" title="delete todo"
+      (click)="delete(todo)">x</button>
+  </li>
+</ul>
+
+
+<div *ngIf="selectedTodo">
+  <app-todoitem [selectedItem]="selectedTodo" ></app-todoitem>
+</div>
