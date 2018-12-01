@@ -13,13 +13,15 @@ export class TodoComponent implements OnInit {
 
   todos: Todo[];
 
+  todo: Todo;
+
   //todos = Todo[];
 
   selectedTodo: Todo;
 
   //dependency injection
   constructor(private todoService:TodoService) { 
-
+    
   }
 
   getTodos():void {
@@ -27,6 +29,8 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.todo = { itemname: "",
+                  id:0};
     this.getTodos();
   }
 
@@ -38,5 +42,22 @@ export class TodoComponent implements OnInit {
     this.todos = this.todos.filter(h => h !== todo);
   }
 
+  addTodo(todo: Todo): void {
+    let newTodo: Todo;
 
+    todo.itemname = todo.itemname.trim();
+
+    newTodo = {id:this.getLastID()+1, itemname: todo.itemname };
+
+    if (!todo.itemname) { return; }
+    
+    this.todos.push(newTodo);
+
+    
+  }
+
+  getLastID():number {
+    let length = this.todos.length;
+    return length;
+  }
 }

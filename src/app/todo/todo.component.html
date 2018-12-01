@@ -6,13 +6,15 @@
 <div><span>name: </span>{{todo.itemname }}</div>
 
 
-<div>
-  <label>Todo Item:
-    <input [(ngModel)]="todo.itemname" placeholder="itemname">
-  </label>
-</div>
+
 
 -->
+<div>
+  <label>Todo Item:
+    <input [(ngModel)]="todo.itemname" placeholder="Todo Item">
+    <button (click)="addTodo(todo)">Submit</button>
+  </label>
+</div>
 
 <h2>My Todos</h2>
 <ul class="todos">

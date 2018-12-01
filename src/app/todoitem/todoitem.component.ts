@@ -17,7 +17,7 @@ export class TodoitemComponent implements OnInit {
   ngOnInit() {
 
   }  
-
+  
   valueChanged() { // You can give any function name
       this.counter = this.counter + 1;
       this.valueChange.emit(this.counter);
