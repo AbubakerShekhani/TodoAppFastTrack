@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Todo } from '../todo';
 
 @Component({
@@ -9,14 +9,18 @@ import { Todo } from '../todo';
 export class TodoitemComponent implements OnInit {
 
   @Input() selectedItem: Todo;
+  @Output() valueChange = new EventEmitter();
+  counter = 0;
 
   constructor() { }
 
   ngOnInit() {
 
+  }  
+
+  valueChanged() { // You can give any function name
+      this.counter = this.counter + 1;
+      this.valueChange.emit(this.counter);
   }
-
-
-  
 
 }
