@@ -39,32 +39,20 @@ export class TodoComponent implements OnInit {
   }
 
   delete(todo: Todo): void {
-    this.todos = this.todos.filter(h => h !== todo);
+    this.todoService.deleteTodos(todo);
+    this.getTodos();
   }
 
   addTodo(todo: Todo): void {
-    let newTodo: Todo;
-
-    todo.itemname = todo.itemname.trim();
-
-    newTodo = {id:this.getLastID()+1, itemname: todo.itemname };
-
-    if (!todo.itemname) { return; }
-    
-    this.todos.push(newTodo);
-
-    
-  }
-
-  getLastID():number {
-    let lastID:number;
-    let length = this.todos.length;
-    
-    lastID = this.todos[length-1].id;
-    return lastID;
+    this.todoService.addTodos(todo);
+    this.getTodos();
   }
   
   onChange(event) {
-    console.log('event ',event)
+    console.log('event ',event);
+  }
+
+  ngOnChanges() {
+    //this.getTodos();
   }
 }

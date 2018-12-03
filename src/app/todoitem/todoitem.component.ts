@@ -30,4 +30,8 @@ export class TodoitemComponent implements OnInit {
     this.change.emit(this.counter);
   }
 
+  ngOnChanges() {
+    console.log(this.selectedItem);
+  }
+
 }
