@@ -5,8 +5,16 @@
 <div>
   <label>name:
     <input [(ngModel)]="selectedItem.itemname" placeholder="itemname">
-    
   </label>
+</div>
+
+<div>
+  <button (click)="increment()">
+    Increment
+  </button>
+  <button (click)="decrement()">
+    Decrement
+  </button>
 </div>
 
 

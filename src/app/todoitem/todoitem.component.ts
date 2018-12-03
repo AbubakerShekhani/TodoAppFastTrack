@@ -9,7 +9,8 @@ import { Todo } from '../todo';
 export class TodoitemComponent implements OnInit {
 
   @Input() selectedItem: Todo;
-  @Output() valueChange = new EventEmitter();
+  @Output() change: EventEmitter<number> = new EventEmitter();
+
   counter = 0;
 
   constructor() { }
@@ -17,10 +18,16 @@ export class TodoitemComponent implements OnInit {
   ngOnInit() {
 
   }  
-  
-  valueChanged() { // You can give any function name
-      this.counter = this.counter + 1;
-      this.valueChange.emit(this.counter);
+
+
+  increment() {
+    this.counter++;
+    this.change.emit(this.counter);
+  }
+
+  decrement() {
+    this.counter--;
+    this.change.emit(this.counter);
   }
 
 }

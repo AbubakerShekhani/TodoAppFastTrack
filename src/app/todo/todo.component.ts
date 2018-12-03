@@ -57,7 +57,14 @@ export class TodoComponent implements OnInit {
   }
 
   getLastID():number {
+    let lastID:number;
     let length = this.todos.length;
-    return length;
+    
+    lastID = this.todos[length-1].id;
+    return lastID;
+  }
+  
+  onChange(event) {
+    console.log('event ',event)
   }
 }
