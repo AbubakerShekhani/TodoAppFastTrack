@@ -31,3 +31,11 @@
 <div *ngIf="selectedTodo">
   <app-todoitem [selectedItem]="selectedTodo" (change)="onChange($event)"></app-todoitem>
 </div>
+
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)" >
+  <input type="text" formControlName="firstName"  />
+  <input type="text" formControlName="lastName"   />
+  <input type="text" formControlName="address" />
+  <button type="submit" [disabled]="!profileForm.valid" >Submit</button>
+</form>

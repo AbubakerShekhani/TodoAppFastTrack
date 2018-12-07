@@ -1,0 +1,11 @@
+div {
+    font-family: 'Courier New', Courier, monospace;
+}
+.alert-danger {
+    color: red;
+}
+
+.form-control {
+    margin: 10px;
+    
+}

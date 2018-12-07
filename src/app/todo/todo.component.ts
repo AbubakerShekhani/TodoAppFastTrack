@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 //import { TODOS } from '../mock-todo';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
+import { FormControl, FormBuilder, Validators, FormGroup  } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
@@ -12,15 +13,19 @@ import { TodoService } from '../todo.service';
 export class TodoComponent implements OnInit {
 
   todos: Todo[];
-
   todo: Todo;
 
   //todos = Todo[];
-
   selectedTodo: Todo;
 
+  profileForm = this.fb.group({ 
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    address: ['', Validators.required],
+   });
+
   //dependency injection
-  constructor(private todoService:TodoService) { 
+  constructor(private todoService: TodoService, private fb: FormBuilder) { 
     
   }
 
@@ -54,5 +59,9 @@ export class TodoComponent implements OnInit {
 
   ngOnChanges() {
     //this.getTodos();
+  }
+
+  onSubmit(value) {
+    console.log(value);
   }
 }
